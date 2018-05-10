@@ -28,6 +28,7 @@ const validate = values => {
           questionErrors.answers = answerArrayErrors
           questionsArrayErrors[questionIndex] = questionErrors
         }
+
         if (question.answers.length > 4) {
           if (!questionErrors.answers) {
             questionErrors.answers = []
@@ -39,6 +40,14 @@ const validate = values => {
           questionErrors.correctAnswer =  'Required';
           questionsArrayErrors[questionIndex] = questionErrors;
          }
+      }
+
+      if (!question.answers || question.answers.length == 0) {
+        if (!questionErrors.answers) {
+          questionErrors.answers = []
+        }
+        questionErrors.answers._error = 'At least one answer must be entered'
+        questionsArrayErrors[questionIndex] = questionErrors
       }
 
     })
