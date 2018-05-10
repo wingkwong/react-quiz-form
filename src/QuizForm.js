@@ -27,7 +27,7 @@ const renderSelectField = ({ input, label, type, meta: { touched, error }, child
   </div>
 );
 
-const renderAnswers = ({ fields, meta: { error } }) => (
+const renderAnswers = ({ fields, question, meta: { error } }) => (
   <ul>
     <li>
       <button type="button" onClick={() => fields.push()}>Add Answer</button>
@@ -47,6 +47,18 @@ const renderAnswers = ({ fields, meta: { error } }) => (
         />
       </li>
     ))}
+        <li>
+       	<Field
+          name={`${question}.correctAnswer`}
+          component={renderSelectField}
+          label="Correct Answer"
+        >
+        	<option value="">Please select correct answer</option>
+	         {fields.map((answer, index) => (
+	         	<option key={index+1} value={index+1}>{`Answer #${index + 1}`}</option>
+	         ))}
+        </Field>
+        </li>
   
     {error && <li className="error">{error}</li>}
   </ul>
@@ -72,18 +84,7 @@ const renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => 
           component={renderField}
           label="Question Title"
         />
-        <FieldArray name={`${question}.answers`} component={renderAnswers} />
-
-        <Field
-          name={`${question}.correctAnswer`}
-          component={renderSelectField}
-          label="Correct Answer"
-        >
-        	<option value="">Please select correct answer</option>
-	         {fields.map((answer, index) => (
-	         	<option key={index+1} value={index+1}>{`Answer #${index + 1}`}</option>
-	         ))}
-        </Field>
+        <FieldArray name={`${question}.answers`} component={renderAnswers} question={question} />
 	     
       </li>
     ))}
