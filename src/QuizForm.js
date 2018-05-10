@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
+import validate from './validate';
 
 class QuizForm extends Component {
   render() {
 
-  	const renderField = ({ input, label, type, meta: { touched, error } }) => (
+ const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
     <label>{label}</label>
     <div>
       <input {...input} type={type} placeholder={label} />
+      {touched && error && <span>{error}</span>}
+    </div>
+  </div>
+);
+
+const renderSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <select {...input} >
+      	{children}
+      </select>
       {touched && error && <span>{error}</span>}
     </div>
   </div>
@@ -60,13 +73,18 @@ const renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => 
           label="Question Title"
         />
         <FieldArray name={`${question}.answers`} component={renderAnswers} />
-        <Field name={`${question}.correctAnswer`} component="select">
-	        <option value="">Please select correct answer</option>
+
+        <Field
+          name={`${question}.correctAnswer`}
+          component={renderSelectField}
+          label="Correct Answer"
+        >
+        	<option value="">Please select correct answer</option>
 	         {fields.map((answer, index) => (
 	         	<option key={index+1} value={index+1}>{`Answer #${index + 1}`}</option>
 	         ))}
-	        
-	      </Field>
+        </Field>
+	     
       </li>
     ))}
   </ul>
@@ -78,7 +96,7 @@ const renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => 
       <div className="QuizForm">
          <form onSubmit={handleSubmit}>
 	      <Field
-	        name="QuizTitle"
+	        name="quizTitle"
 	        type="text"
 	        component={renderField}
 	        label="Quiz Title"
@@ -97,5 +115,6 @@ const renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => 
 }
 
 export default reduxForm({
-  form: 'QuizForm'
+  form: 'QuizForm',
+  validate
 })(QuizForm);
