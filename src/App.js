@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import QuizForm from './QuizForm';
+import QuizFormResult from './QuizFormResult';
 
 class App extends Component {
-  
-  showResults = (values) =>{
-  	window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+  constructor(props){
+  	super(props);
+  	this.state = {
+  		result : null
+  	}
+  }
+
+  setResult = (values) =>{
+	  this.setState({
+	  	result : JSON.stringify(values, null, 2)
+	  })
   }
 
   render() {
     return (
       <div className="App">
-       	<QuizForm onSubmit={this.showResults} />
+       	<QuizForm onSubmit={this.setResult} />
+       	<QuizFormResult result={this.state.result}/>
       </div>
     );
   }
