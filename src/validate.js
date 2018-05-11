@@ -1,5 +1,4 @@
 const validate = values => {
-  console.log(values)
   const errors = {}
   if (!values.quizTitle) {
     errors.quizTitle = 'Required'
@@ -9,7 +8,6 @@ const validate = values => {
   } else {
     const questionsArrayErrors = []
     values.questions.forEach((question, questionIndex) => {
-      console.log(question);
       const questionErrors = {}
       if (!question || !question.question) {
         questionErrors.question = 'Required'
@@ -56,7 +54,6 @@ const validate = values => {
       errors.questions = questionsArrayErrors
     }
   }
-  console.log(errors)
   return errors
 }
 
