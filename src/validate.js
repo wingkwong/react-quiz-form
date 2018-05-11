@@ -42,7 +42,7 @@ const validate = values => {
          }
       }
 
-      if (!question.answers || question.answers.length == 0) {
+      if (!question.answers || question.answers.length === 0) {
         if (!questionErrors.answers) {
           questionErrors.answers = []
         }
