@@ -5,6 +5,7 @@
   "homepage": "https://wingkwong.github.io/react-quiz-form/",
   "dependencies": {
     "react": "^16.3.2",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
