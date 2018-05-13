@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Field, FieldArray, reduxForm } from 'redux-form';
+import { connect } from 'react-redux'
+import { Field, FieldArray, reduxForm, formValueSelector } from 'redux-form';
+import range from 'lodash/range'
 import validate from './validate';
 
 class QuizForm extends Component {
   render() {
-
+ 
+ const {questionType} = this.props;
  const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
     <label>{label}</label>
@@ -21,6 +24,18 @@ const renderSelectField = ({ input, label, type, meta: { touched, error }, child
     <div>
       <select {...input} >
       	{children}
+      </select>
+      {touched && error && <span>{error}</span>}
+    </div>
+  </div>
+);
+
+const renderSelectQuestionTypeField = ({ input, label, type, meta: { touched, error }, children }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <select {...input} >
+        {children}
       </select>
       {touched && error && <span>{error}</span>}
     </div>
@@ -64,7 +79,7 @@ const renderAnswers = ({ fields, question, meta: { error } }) => (
   </ul>
 );
 
-const renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => (
+let renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => (
   <ul>
     <li>
       <button type="button" onClick={() => fields.push({})}>Add Question</button>
@@ -84,18 +99,27 @@ const renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => 
           component={renderField}
           label="Question Title"
         />
-        <FieldArray name={`${question}.answers`} component={renderAnswers} question={question} />
-	     
+        <Field
+          name={`${question}.questionType`}
+          component={renderSelectQuestionTypeField}
+          label="Question Type"
+        >
+          <option value="">Please select a question type</option>
+          <option value="text">Text</option>
+          <option value="photo">Photo</option>
+        </Field>
+        {questionType[index] == 'text' && <FieldArray name={`${question}.answers`} component={renderAnswers} question={question} />} 
+        
       </li>
     ))}
   </ul>
 );
 
+  const { handleSubmit, pristine, reset, submitting } = this.props;
 
-  	const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <div className="QuizForm">
-         <form onSubmit={handleSubmit}>
+         <form name="quiz-form" onSubmit={handleSubmit}>
 	      <Field
 	        name="quizTitle"
 	        type="text"
@@ -115,7 +139,21 @@ const renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => 
   }
 }
 
-export default reduxForm({
-  form: 'QuizForm',
+QuizForm = reduxForm({
+  form: 'quizForm',
   validate
 })(QuizForm);
+
+const selector = formValueSelector('quizForm');
+
+QuizForm = connect(
+  state => {
+    const questions = selector(state, 'questions');
+    const questionType = questions && questions.map(question => question.questionType);
+    
+    return { questionType: questionType }
+  }
+)(QuizForm)
+
+
+export default QuizForm;
