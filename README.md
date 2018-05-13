@@ -77,7 +77,13 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
 } 
 ```
 
-## Installation
+## Development
 - Clone the project
 - run `npm install`
 - run `npm run start`
+
+## Demo
+The demo is available at https://wingkwong.github.io/react-quiz-form/
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
