@@ -8,7 +8,7 @@ class QuizForm extends Component {
   render() {
  
  const {questionType} = this.props;
- const renderField = ({ input, label, type, meta: { touched, error } }) => (
+ const renderInputField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
     <label>{label}</label>
     <div>
@@ -17,6 +17,7 @@ class QuizForm extends Component {
     </div>
   </div>
 );
+
 
 const renderSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
   <div>
@@ -42,7 +43,7 @@ const renderSelectQuestionTypeField = ({ input, label, type, meta: { touched, er
   </div>
 );
 
-const renderAnswers = ({ fields, question, meta: { error } }) => (
+const renderTextAnswers = ({ fields, question, meta: { error } }) => (
   <ul>
     <li>
       <button type="button" onClick={() => fields.push()}>Add Answer</button>
@@ -57,7 +58,7 @@ const renderAnswers = ({ fields, question, meta: { error } }) => (
         <Field
           name={answer}
           type="text"
-          component={renderField}
+          component={renderInputField}
           label={`Answer #${index + 1}`}
         />
       </li>
@@ -79,7 +80,8 @@ const renderAnswers = ({ fields, question, meta: { error } }) => (
   </ul>
 );
 
-let renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => (
+
+const renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => (
   <ul>
     <li>
       <button type="button" onClick={() => fields.push({})}>Add Question</button>
@@ -96,7 +98,7 @@ let renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => (
         <Field
           name={`${question}.question`}
           type="text"
-          component={renderField}
+          component={renderInputField}
           label="Question Title"
         />
         <Field
@@ -108,8 +110,7 @@ let renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => (
           <option value="text">Text</option>
           <option value="photo">Photo</option>
         </Field>
-        {questionType[index] == 'text' && <FieldArray name={`${question}.answers`} component={renderAnswers} question={question} />} 
-        
+        <FieldArray name={`${question}.answers`} component={renderTextAnswers} question={question} />
       </li>
     ))}
   </ul>
@@ -123,7 +124,7 @@ let renderQuestions = ({ fields, meta: { touched, error, submitFailed } }) => (
 	      <Field
 	        name="quizTitle"
 	        type="text"
-	        component={renderField}
+	        component={renderInputField}
 	        label="Quiz Title"
 	      />
 	      <FieldArray name="questions" component={renderQuestions} />
@@ -150,7 +151,7 @@ QuizForm = connect(
   state => {
     const questions = selector(state, 'questions');
     const questionType = questions && questions.map(question => question.questionType);
-    
+
     return { questionType: questionType }
   }
 )(QuizForm)
