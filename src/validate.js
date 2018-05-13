@@ -13,7 +13,6 @@ const validate = values => {
         questionErrors.question = 'Required'
         questionsArrayErrors[questionIndex] = questionErrors
       }
-      console.log(question)
         if (!question.questionType){
           questionErrors.questionType =  'Required';
           questionsArrayErrors[questionIndex] = questionErrors;
