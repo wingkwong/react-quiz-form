@@ -11,9 +11,12 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
 - Answers
 	- Answer #n (Max number of n: 4)
 - Correct Answer
+- Message for Correct Answer
+- Message for Incorrect Answer
+- Explaination
 
 ## Validation
-- All fields are required
+- All fields are required except `messageForCorrectAnswer`, `messageForInorrectAnswer`, and `explanation`
 - At least one question has to be created
 - At least two answers have to be created
 - Max four answers in one question are allowed
@@ -32,7 +35,10 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
         "this.state",
         "this.values"
       ],
-      "correctAnswer": "3"
+      "correctAnswer": "3",
+      "messageForCorrectAnswer": "Correct answer. Good job.",
+      "messageForInorrectAnswer": "Incorrect answer. Please try again.",
+      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "question": "ReactJS is developed by _____?",
@@ -41,7 +47,10 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
         "Google Engineers",
         "Facebook Engineers"
       ],
-      "correctAnswer": "2"
+      "correctAnswer": "2",
+      "messageForCorrectAnswer": "Correct answer. Good job.",
+      "messageForInorrectAnswer": "Incorrect answer. Please try again.",
+      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "question": "ReactJS is an MVC based framework?",
@@ -50,7 +59,10 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
         "True",
         "False"
       ],
-      "correctAnswer": "2"
+      "correctAnswer": "2",
+      "messageForCorrectAnswer": "Correct answer. Good job.",
+      "messageForInorrectAnswer": "Incorrect answer. Please try again.",
+      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "question": "Which of the following concepts is/are key to ReactJS?",
@@ -60,7 +72,10 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
         "Event delegation model",
         "Both of the above",
       ],
-      "correctAnswer": "3"
+      "correctAnswer": "3",
+      "messageForCorrectAnswer": "Correct answer. Good job.",
+      "messageForInorrectAnswer": "Incorrect answer. Please try again.",
+      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
@@ -71,7 +86,10 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
         "https://dummyimage.com/600x400/000/fff&text=C",
         "https://dummyimage.com/600x400/000/fff&text=D"
       ],
-      "correctAnswer": "1"
+      "correctAnswer": "1",
+      "messageForCorrectAnswer": "Correct answer. Good job.",
+      "messageForInorrectAnswer": "Incorrect answer. Please try again.",
+      "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
   ]
 } 
