@@ -154,6 +154,12 @@ class QuizForm extends Component {
 	        component={this.renderInputField}
 	        label="Quiz Title"
 	      />
+        <Field
+	        name="quizSynopsis"
+	        type="text"
+	        component={this.renderTextareaField}
+	        label="Quiz Synopsis"
+	      />
 	      <FieldArray name="questions" component={this.renderQuestions} />
 	      <div>
 	        <button type="submit" disabled={submitting}>Submit</button>

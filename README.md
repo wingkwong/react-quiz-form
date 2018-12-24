@@ -5,6 +5,7 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
 
 ## Structure breakdown:
 - Quiz Title
+- Quiz Synopsis
 - Questions
 	- Title
 	- Type (Text or Photo)
@@ -16,7 +17,7 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
 - Explaination
 
 ## Validation
-- All fields are required except `messageForCorrectAnswer`, `messageForInorrectAnswer`, and `explanation`
+- All fields are required except `messageForCorrectAnswer`, `messageForIncorrectAnswer`, and `explanation`
 - At least one question has to be created
 - At least two answers have to be created
 - Max four answers in one question are allowed
@@ -25,6 +26,7 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
 ```json
 {
   "quizTitle": "React Quiz Demo - https://github.com/wingkwong/react-quiz",
+  "quizSynopsis": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim",
   "questions": [
     {
       "question": "How can you access the state of a component from inside of a member function?",
@@ -37,7 +39,7 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
       ],
       "correctAnswer": "3",
       "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForInorrectAnswer": "Incorrect answer. Please try again.",
+      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
       "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
@@ -49,7 +51,7 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
       ],
       "correctAnswer": "2",
       "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForInorrectAnswer": "Incorrect answer. Please try again.",
+      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
       "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
@@ -61,7 +63,7 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
       ],
       "correctAnswer": "2",
       "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForInorrectAnswer": "Incorrect answer. Please try again.",
+      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
       "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
@@ -74,7 +76,7 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
       ],
       "correctAnswer": "3",
       "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForInorrectAnswer": "Incorrect answer. Please try again.",
+      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
       "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
@@ -88,7 +90,7 @@ react-quiz-form is a ReactJS component integrated with [Redux From](https://gith
       ],
       "correctAnswer": "1",
       "messageForCorrectAnswer": "Correct answer. Good job.",
-      "messageForInorrectAnswer": "Incorrect answer. Please try again.",
+      "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
       "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
   ]
