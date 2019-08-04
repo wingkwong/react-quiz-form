@@ -136,6 +136,12 @@ class QuizForm extends Component {
             component={this.renderTextareaField}
             label="Explanation"
           />
+           <Field
+            name={`${question}.point`}
+            type="number"
+            component={this.renderInputField}
+            label="Point"
+          />
         </li>
       ))}
     </ul>
