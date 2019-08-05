@@ -1,7 +1,9 @@
 # react-quiz-form
 A redux form for creating quizzes in React
 
-react-quiz-form is a ReactJS component integrated with [Redux From](https://github.com/erikras/redux-form). It aims to allow users to create a quiz manually and outputs a JSON file for [react-quiz](https://github.com/wingkwong/react-quiz) to process. 
+react-quiz-form is a ReactJS component integrated with [Redux From](https://github.com/erikras/redux-form). It aims to allow users to create a quiz manually and outputs a JSON file for [react-quiz-component](https://github.com/wingkwong/react-quiz-component) to process. 
+
+>> react-quiz-form currently only supports [react-quiz-component](https://github.com/wingkwong/react-quiz-component) v0.2.8.
 
 ## Structure breakdown:
 - Quiz Title
