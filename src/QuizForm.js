@@ -125,7 +125,7 @@ class QuizForm extends Component {
             label="Message for Correct Answer"
           />
           <Field
-            name={`${question}.messageForInorrectAnswer`}
+            name={`${question}.messageForIncorrectAnswer`}
             type="text"
             component={this.renderTextareaField}
             label="Message for Incorrect Answer"
